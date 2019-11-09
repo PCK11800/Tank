@@ -44,7 +44,8 @@ public class Tank{
         return tankTurret;
     }
 
-    public void activateTurretRotation(){
-        tankTurret.activateTurretRotation();
+    public void update(){
+        tankHull.update();
+        tankTurret.update();
     }
 }

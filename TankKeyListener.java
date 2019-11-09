@@ -37,19 +37,19 @@ public class TankKeyListener implements KeyListener{
         for(int keys : keysDown){
             if(keysDown.contains(new Integer(KeyEvent.VK_W))){
                 tank.getHull().goForward();
-                tank.getTurret().setLocation();
+                tank.getTurret().setTankHullLocation();
             }
             if(keysDown.contains(new Integer(KeyEvent.VK_A))){
                 tank.getHull().turnLeft();
-                tank.getTurret().setLocation();
+                tank.getTurret().setTankHullLocation();
             }
             if(keysDown.contains(new Integer(KeyEvent.VK_S))){
                 tank.getHull().goBackward();
-                tank.getTurret().setLocation();
+                tank.getTurret().setTankHullLocation();
             }
             if(keysDown.contains(new Integer(KeyEvent.VK_D))){
                 tank.getHull().turnRight();
-                tank.getTurret().setLocation();
+                tank.getTurret().setTankHullLocation();
             }
         }
     }

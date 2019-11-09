@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.Color;
 
 public class TankHull extends RotatingObject{
 
@@ -31,5 +32,9 @@ public class TankHull extends RotatingObject{
 
     public void setMovementSpeed(int movementSpeed) {
         this.movementSpeed = movementSpeed;
+    }
+
+    public void update(){
+        //Collision detection and other 
     }
 }

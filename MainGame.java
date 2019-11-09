@@ -10,23 +10,26 @@ public class MainGame{
         gameWindow.add(gamePanel);
     }
 
-    private void gameLoop(){
+    private void iniGame(){
         createPlayerTank();
+    }
+
+    private void gameLoop(){
         while(true){
-            tank.activateTurretRotation();
+            tank.update();
             gamePanel.repaint();
         }
     }
 
     private void createPlayerTank(){
         tank = new Tank();
-        tank.setHull(500, 500, 25, 50);
+        tank.setHull(500, 500, 50, 100);
         tank.setHullImage("TankHullIcon.png");
         tank.setHullTurningDistance(2);
         tank.setStartingDirection(0);
         tank.setTankSpeed(4);
 
-        tank.setTurret(25, 25);
+        tank.setTurret(50, 50);
         tank.setTurretImage("TankTurretIcon.png");
         tank.setTurretTurningDistance(2);
 
@@ -40,6 +43,7 @@ public class MainGame{
     public static void main(String[] args){
         MainGame main = new MainGame();
         main.initializeGameEnviroment();
+        main.iniGame();
         main.gameLoop();
     }
 }

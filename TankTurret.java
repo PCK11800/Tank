@@ -6,24 +6,34 @@ public class TankTurret extends RotatingObject{
     private TankHull connectedTankHull;
 
     public TankTurret(TankHull connectedTankHull, int width, int height){
+        this.connectedTankHull = connectedTankHull;
         this.width = width;
         this.height = height;
-        this.xPos = connectedTankHull.getxPos();
-        this.yPos = connectedTankHull.getyPos();
-        this.connectedTankHull = connectedTankHull;
+        this.xPos = getTankHullCenter_x();
+        this.yPos = getTankHullCenter_y();
         setBounds(xPos, yPos, width, height);
         iniObject();
     }
 
-    public void setLocation(){
-        this.xPos = connectedTankHull.getxPos();
-        this.yPos = connectedTankHull.getyPos();
+    public void setTankHullLocation(){
+        this.xPos = getTankHullCenter_x();
+        this.yPos = getTankHullCenter_y();
         setxPos(this.xPos);
         setyPos(this.yPos);
         repaint();
     }
 
-    public void activateTurretRotation(){
+    private int getTankHullCenter_x(){
+        int tankHullCenter_x = ((connectedTankHull.getWidth()/2 + connectedTankHull.getxPos()) - width/2);
+        return tankHullCenter_x;
+    }
+
+    private int getTankHullCenter_y(){
+        int tankHullCenter_y = ((connectedTankHull.getHeight()/2 + connectedTankHull.getyPos()) - width/2);
+        return tankHullCenter_y;
+    }
+
+    private void activateTurretRotation(){
         int mouseXPos = MouseInfo.getPointerInfo().getLocation().x;
         int mouseYPos = MouseInfo.getPointerInfo().getLocation().y;
 
@@ -40,5 +50,9 @@ public class TankTurret extends RotatingObject{
         }
 
         rotateObject(- Math.toDegrees(inRads) - 90);
+    }
+
+    public void update(){
+        activateTurretRotation();
     }
 }

@@ -43,4 +43,8 @@ public class Tank{
     public TankTurret getTurret(){
         return tankTurret;
     }
+
+    public void activateTurretRotation(){
+        tankTurret.activateTurretRotation();
+    }
 }

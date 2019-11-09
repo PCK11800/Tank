@@ -1,5 +1,3 @@
-import java.awt.MouseInfo;
-
 public class MainGame{
 
     GameWindow gameWindow;
@@ -15,7 +13,7 @@ public class MainGame{
     private void gameLoop(){
         createPlayerTank();
         while(true){
-            setConstantTurretDirection(tank);
+            tank.activateTurretRotation();
             gamePanel.repaint();
         }
     }
@@ -37,26 +35,6 @@ public class MainGame{
         gamePanel.repaint();
 
         gameWindow.initKeyListener(tank, gamePanel);
-    }
-
-    //This works!!
-    private void setConstantTurretDirection(Tank tank){
-        int mouseXPos = MouseInfo.getPointerInfo().getLocation().x;
-        int mouseYPos = MouseInfo.getPointerInfo().getLocation().y;
-
-        double dx = tank.getHull().getxPos() - mouseXPos;
-        double dy = tank.getHull().getyPos() - mouseYPos;
-
-        double inRads = Math.atan2(dy, dx);
-
-        if(inRads < 0){
-            inRads = Math.abs(inRads);
-        }
-        else{
-            inRads = 2 * Math.PI - inRads;
-        }
-
-        tank.getTurret().rotateObject(- Math.toDegrees(inRads) - 90);
     }
 
     public static void main(String[] args){

@@ -1,4 +1,6 @@
-public class MainGame{
+import java.util.ArrayList;
+
+public class MainGame {
 
     GameWindow gameWindow;
     GamePanel gamePanel;
@@ -23,21 +25,21 @@ public class MainGame{
 
     private void createPlayerTank(){
         tank = new Tank();
-        tank.setHull(500, 500, 50, 100);
+        tank.setHull(500, 500, 100, 100);
         tank.setHullImage("TankHullIcon.png");
         tank.setHullTurningDistance(2);
         tank.setStartingDirection(0);
         tank.setTankSpeed(4);
 
-        tank.setTurret(50, 50);
+        tank.setTurret(100, 100);
         tank.setTurretImage("TankTurretIcon.png");
         tank.setTurretTurningDistance(2);
 
-        gamePanel.add(tank.getTurret());
-        gamePanel.add(tank.getHull());
+        gamePanel.add(tank.getTurret(), 1);
+        gamePanel.add(tank.getHull(), 2);
         gamePanel.repaint();
 
-        gameWindow.initKeyListener(tank, gamePanel);
+        gameWindow.initListeners(tank, gamePanel);
     }
 
     public static void main(String[] args){

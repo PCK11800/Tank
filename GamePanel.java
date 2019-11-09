@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.Color;
 
-public class GamePanel extends JPanel{
+public class GamePanel extends JLayeredPane{
 
     private int width, height;
     

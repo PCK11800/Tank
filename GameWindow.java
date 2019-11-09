@@ -17,8 +17,11 @@ public class GameWindow extends JFrame{
         requestFocusInWindow();
     }
 
-    public void initKeyListener(Tank tank, GamePanel panel){
+    public void initListeners(Tank tank, GamePanel panel){
         TankKeyListener tkl = new TankKeyListener(tank, panel);
         addKeyListener(tkl);
+
+        TankMouseListener mk1 = new TankMouseListener(tank, panel);
+        addMouseListener(mk1);
     }
 }

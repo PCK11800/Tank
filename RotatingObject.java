@@ -48,22 +48,6 @@ public class RotatingObject extends JLabel{
         repaint();
     }
 
-    public void turnRight(){
-        rotateObject(getObjectDirection() + turningDistance);
-
-        if(getObjectDirection() >= 360){
-            setObjectDirection(getObjectDirection() - 360);
-        }
-    }
-
-    public void turnLeft(){
-        rotateObject(getObjectDirection() - turningDistance);
-
-        if(getObjectDirection() <= 0){
-            setObjectDirection(getObjectDirection() + 360);
-        }
-    }
-
     public int getxPos() {
         return xPos;
     }

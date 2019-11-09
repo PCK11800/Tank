@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.MouseInfo;
 
 public class TankTurret extends RotatingObject{
+
+    //TankTurretIcon.png size = 75 x 75
     
     private TankHull connectedTankHull;
 
@@ -23,12 +25,12 @@ public class TankTurret extends RotatingObject{
         repaint();
     }
 
-    private int getTankHullCenter_x(){
+    public int getTankHullCenter_x(){
         int tankHullCenter_x = ((connectedTankHull.getWidth()/2 + connectedTankHull.getxPos()) - width/2);
         return tankHullCenter_x;
     }
 
-    private int getTankHullCenter_y(){
+    public int getTankHullCenter_y(){
         int tankHullCenter_y = ((connectedTankHull.getHeight()/2 + connectedTankHull.getyPos()) - width/2);
         return tankHullCenter_y;
     }

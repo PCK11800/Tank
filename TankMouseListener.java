@@ -1,18 +1,35 @@
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 public class TankMouseListener implements MouseListener{
 
     Tank tank;
     GamePanel panel;
 
+    //Contains all the shells
+    ArrayList<Shell> shellList;
+
     public TankMouseListener(Tank tank, GamePanel panel){
         this.tank = tank;
         this.panel = panel;
         return;
     }
+
+    public void setShellList(ArrayList<Shell> shellList){
+        this.shellList = shellList;
+    }
+
+    private void createShell(){
+        Shell shell = new Shell(tank.getTurret(), 10, 15, 20);
+        shellList.add(shell);
+        panel.add(shell, 3);
+        panel.repaint();
+    }
     
-    public void mousePressed(MouseEvent e){}
+    public void mousePressed(MouseEvent e){
+        createShell();
+    }
 
     public void mouseReleased(MouseEvent e){}
 
@@ -20,7 +37,6 @@ public class TankMouseListener implements MouseListener{
 
     public void mouseExited(MouseEvent e){}
 
-    public void mouseClicked(MouseEvent e){
-        
-    }
+    public void mouseClicked(MouseEvent e){}
+
 }

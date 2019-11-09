@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class GameWindow extends JFrame{
@@ -17,11 +18,12 @@ public class GameWindow extends JFrame{
         requestFocusInWindow();
     }
 
-    public void initListeners(Tank tank, GamePanel panel){
+    public void initListeners(Tank tank, GamePanel panel, ArrayList<Shell> shellList){
         TankKeyListener tkl = new TankKeyListener(tank, panel);
         addKeyListener(tkl);
 
-        TankMouseListener mk1 = new TankMouseListener(tank, panel);
-        addMouseListener(mk1);
+        TankMouseListener tm1 = new TankMouseListener(tank, panel);
+        tm1.setShellList(shellList);
+        addMouseListener(tm1);
     }
 }

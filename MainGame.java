@@ -64,13 +64,30 @@ public class MainGame {
         }
     }
 
+    //Multithreading the gameloop for hopefully better performance.
     private void gameLoop(){
-        while(true){
-            sleep(10);
-            tank.update();
-            updateShells();
-            gamePanel.repaint();
-        }
+
+        Thread t1 = new Thread(new Runnable(){
+            public void run(){
+                while(true){
+                    tank.update();
+                    gamePanel.repaint();
+                }
+     
+            }
+        });
+        t1.start();
+
+        Thread t2 = new Thread(new Runnable(){
+            public void run(){
+                while(true){
+                    sleep(10);
+                    updateShells();
+                    gamePanel.repaint();
+                }
+            }
+        });
+        t2.start();
     }
 
     public void sleep(long milli){

@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import javax.swing.*;
+import java.awt.Toolkit;
+import java.awt.Point;
 
 public class GameWindow extends JFrame{
 
@@ -16,8 +18,18 @@ public class GameWindow extends JFrame{
 
         setFocusable(true);
         requestFocusInWindow();
+
+        setCustomCursor("");
     }
 
+    public void setCustomCursor(String imageURL){
+        try
+        {
+        setCursor(Toolkit.getDefaultToolkit().createCustomCursor(new ImageIcon(imageURL).getImage(),new Point(0,0),"custom cursor"));
+        }catch(Exception e){}
+    }
+
+    
     public void initListeners(Tank tank, GamePanel panel, ArrayList<Shell> shellList){
         TankKeyListener tkl = new TankKeyListener(tank, panel);
         addKeyListener(tkl);
@@ -25,5 +37,8 @@ public class GameWindow extends JFrame{
         TankMouseListener tm1 = new TankMouseListener(tank, panel);
         tm1.setShellList(shellList);
         addMouseListener(tm1);
+
+        TankMouseMotionListener tmm1 = new TankMouseMotionListener(tank, panel);
+        addMouseMotionListener(tmm1);
     }
 }

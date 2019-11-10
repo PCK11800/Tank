@@ -20,8 +20,10 @@ public class TankMouseListener implements MouseListener{
         this.shellList = shellList;
     }
 
+    //MAKE SURE SHELL SPEED IS NOT DIVISIBLE BY WIDTH OR HEIGHT
     private void createShell(){
-        Shell shell = new Shell(tank.getTurret(), 10, 15, 20);
+        Shell shell = new Shell(tank.getTurret(), 10, 15, 9);
+        shell.setRicochetNum(1);
         shellList.add(shell);
         panel.add(shell, 3);
         panel.repaint();

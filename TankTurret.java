@@ -55,6 +55,6 @@ public class TankTurret extends RotatingObject{
     }
 
     public void update(){
-        activateTurretRotation();
+        //activateTurretRotation();
     }
 }

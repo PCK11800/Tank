@@ -6,7 +6,8 @@ public class Shell extends RotatingObject{
     //TankShellIcon.png size = 10 x 15
 
     private int shellSpeed;
-    private int ricochetNum;
+    private int ricochetNum = 0; //Default no ricochet
+    private int ricochetAmount;
     private TankTurret connectedTankTurret;
 
     public Shell(TankTurret connectedTankTurret, int width, int height, int shellSpeed){
@@ -58,4 +59,19 @@ public class Shell extends RotatingObject{
         launchedForward();
     }
 
+    public void setRicochetNum(int ricochetNum){
+        this.ricochetNum = ricochetNum;
+    }
+
+    public int getRicochetNum(){
+        return ricochetNum;
+    }
+
+    public void increaseRicochetAmount(){
+        ricochetAmount++;
+    }
+
+    public int getRicochetAmount(){
+        return ricochetAmount;
+    }
 }

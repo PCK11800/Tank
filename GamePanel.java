@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.Color;
+import java.util.ArrayList;
 
 public class GamePanel extends JLayeredPane{
 
@@ -13,5 +14,8 @@ public class GamePanel extends JLayeredPane{
         setOpaque(true);
         setLayout(null);
         setBackground(Color.WHITE);
+
+        setFocusable(true);
+        requestFocus();
     }
 }
